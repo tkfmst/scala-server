@@ -5,13 +5,12 @@ lazy val root = (project in file("."))
   )
   .aggregate(server)
 
-lazy val server = (project in file("./src"))
+lazy val server = (project in file("modules/server"))
   .settings(
-    name := "server",
-    version := "1.0"
+    version := "1.0",
+    commonSettings,
+    serverSettings
   )
-  .settings(commonSettings)
-  .settings(serverSettings)
 
 lazy val commonSettings = Seq(
   scalaVersion := Versions.Scala,
